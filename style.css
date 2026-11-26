@@ -70,3 +70,12 @@ body{padding-left:240px}
 .example-origin{font-size:.875rem;color:var(--olive);margin:8px 0 24px}.example-record-link{margin:14px 0 0;font-size:.875rem}.example-record-link a{color:var(--brick);text-decoration:underline;text-underline-offset:3px}.action-kind{font-size:.875rem;font-weight:600;color:var(--olive)}
 
 .example-shell .spec-text{padding-bottom:0}.example-record-link{margin:14px 0 24px}
+
+.taxonomy{row-gap:40px}.taxonomy-distribution{grid-column:1/-1;margin:0;min-width:0}
+.taxonomy-distribution-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;margin-bottom:20px}
+.taxonomy-distribution-heading h4{font-size:clamp(1.25rem,2vw,1.5rem);margin:0;font-weight:600;letter-spacing:-.025em}
+.taxonomy-distribution-heading>a{font-size:.875rem;color:var(--brick);text-decoration:underline;text-underline-offset:3px}
+.taxonomy-distribution-scroll{overflow-x:auto;overscroll-behavior-inline:contain;border:1px solid var(--line);border-radius:10px;background:white;padding:18px}
+.taxonomy-distribution-scroll a{display:block;min-width:1000px}
+.taxonomy-distribution img{display:block;width:100%;height:auto}
+@media(max-width:760px){.taxonomy-distribution{margin-top:32px}.taxonomy-distribution-scroll{padding:12px}.taxonomy-distribution-scroll a{min-width:1600px}.taxonomy-distribution-heading{margin-bottom:14px}}

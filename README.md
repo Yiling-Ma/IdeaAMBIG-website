@@ -63,3 +63,10 @@ optional English WebVTT captions. Playback is user-initiated, uses native access
 controls, and stays inline on mobile. Video metadata is preloaded; the movie
 does not autoplay. The website uses a clean render without burned-in subtitles, so the CC menu
 can turn captions fully off. Desktop exports retain their on-screen subtitles.
+
+## Distribution figure
+
+Section 04 embeds the supplied four-panel distribution figure as a vector SVG
+converted from the original PDF. The unmodified original is available at
+`assets/dataset-distributions.pdf`. On small screens the chart scrolls horizontally
+to preserve readable labels; the original PDF is available for full-size viewing.
