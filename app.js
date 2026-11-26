@@ -2,7 +2,7 @@
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
-let examples = [], results = [], activeTask = 1, activeSubset = "real", sortColumn = 0;
+let examples = [], activeTask = 1;
 
 const readable = value => String(value).replaceAll("_", " ");
 
@@ -36,25 +36,6 @@ function renderExample() {
     panel.append(element("h4", "Gold clarification action · annotated defect supplied"), element("p", example.action_type === "evidence_seeking" ? "Action type: Evidence seeking" : "Action type: Clarification question", "action-kind"), element("p", example.clarification));
     if (example.evidence) panel.append(element("p", `Information to seek: ${example.evidence}`));
   }
-}
-
-function renderResults() {
-  const body = $("#results-body"); body.replaceChildren();
-  const maxima = [0,1,2].map(i => Math.max(...results.map(r => r[activeSubset][i])));
-  const sorted = [...results].sort((a,b) => b[activeSubset][sortColumn] - a[activeSubset][sortColumn]);
-  sorted.forEach(result => {
-    const row = element("tr");
-    if (result.model === "GPT-5.6-Sol") row.className = "winner";
-    const name = element("th", undefined);name.scope = "row";
-    name.append(element("span", result.model), element("small", result.group));
-    row.append(name);
-    result[activeSubset].forEach((value, i) => row.append(element("td", value.toFixed(1), value === maxima[i] ? "best" : "")));
-    body.append(row);
-  });
-  $("#results-sample").textContent = activeSubset === "real"
-    ? "Task 1: 100 READY + 100 NOT READY specifications. Tasks 2–3: 163 real-world instances."
-    : "Task 1: 100 READY + 100 NOT READY specifications. Tasks 2–3: a fixed sample of 200 synthetic instances.";
-  $$("[data-sort]").forEach(button => button.closest("th").setAttribute("aria-sort", Number(button.dataset.sort) === sortColumn ? "descending" : "none"));
 }
 
 const contentsToggle = $(".menu-toggle");
@@ -143,12 +124,6 @@ $(".example-tabs").addEventListener("keydown", event => {
 });
 $("#example-subset").addEventListener("change", renderExample);
 $("#example-type").addEventListener("change", renderExample);
-$$("[data-subset]").forEach(button => button.addEventListener("click", () => {
-  activeSubset = button.dataset.subset;
-  $$("[data-subset]").forEach(b => {b.classList.toggle("active", b === button);b.setAttribute("aria-pressed", String(b === button));});
-  renderResults();
-}));
-$$("[data-sort]").forEach(button => button.addEventListener("click", () => {sortColumn = Number(button.dataset.sort);renderResults();}));
 $$("[data-copy]").forEach(button => button.addEventListener("click", async () => {
   const original = button.textContent;
   try {
@@ -170,8 +145,4 @@ async function loadData(path) {
 loadData("data/examples.json?v=full-examples-1").then(data => {examples = data;renderExample();}).catch(() => {
   $("#example-title").textContent = "Examples could not be loaded.";
   $("#example-spec").textContent = "Please reload this page or browse the released dataset on GitHub using the link above.";
-});
-loadData("data/results.json").then(data => {results = data;renderResults();}).catch(() => {
-  const cell = element("td", "Results could not be loaded. Please reload or consult the paper.");cell.colSpan = 4;
-  const row = element("tr");row.append(cell);$("#results-body").append(row);
 });

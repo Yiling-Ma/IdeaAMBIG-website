@@ -70,3 +70,17 @@ Section 04 embeds the supplied four-panel distribution figure as a vector SVG
 converted from the original PDF. The unmodified original is available at
 `assets/dataset-distributions.pdf`. On small screens the chart scrolls horizontally
 to preserve readable labels; the original PDF is available for full-size viewing.
+
+## Interactive subset comparison
+
+`results-explorer.js` renders a paired Synthetic / Real-world rank comparison
+for each of the three primary task metrics. It reuses all 78 published values
+in `data/results.json`; no cross-task aggregate is computed. Model-group presets
+and individual chips select the comparison cohort. Hover/focus traces a model;
+click/Enter pins it. Ranks use competition ranking among the selected models,
+with ties at the published precision. Rank change is synthetic rank minus real
+rank. Score differences are always real minus synthetic, in percentage points.
+Single-subset views retain the sortable three-metric score table.
+
+Interaction reference: [GRAPE-Bench](https://zhangce01.github.io/grape-bench/).
+The code and visual styling are specific to IdeaAMBIG.
