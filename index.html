@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://yiling-ma.github.io/IdeaAMBIG-website/assets/social.png">
   <link rel="canonical" href="https://yiling-ma.github.io/IdeaAMBIG-website/">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-  <link rel="stylesheet" href="style.css?v=conclusions-1">
+  <link rel="stylesheet" href="style.css?v=findings-1">
   <script src="app.js?v=rank-compare-1" defer></script>
   <script src="results-explorer.js?v=rank-compare-1" defer></script>
   <script src="distribution-explorer.js?v=interactive-1" defer></script>
@@ -38,7 +38,7 @@
       <a href="#taxonomy"><span class="toc-number">04</span><span>Defect taxonomy</span></a>
       <a href="#examples"><span class="toc-number">05</span><span>Dataset examples</span></a>
       <a href="#results"><span class="toc-number">06</span><span>Benchmark results</span></a>
-      <a href="#findings"><span class="toc-number">07</span><span>Clarification utility</span></a>
+      <a href="#findings"><span class="toc-number">07</span><span>Key findings</span></a>
       <a href="#conclusions"><span class="toc-number">08</span><span>Conclusions</span></a>
       <a href="#resources"><span class="toc-number">09</span><span>Get started</span></a>
       <a href="#citation"><span class="toc-number">10</span><span>Citation</span></a>
@@ -126,8 +126,7 @@
     </section>
 
     <section class="findings-section section" id="results" data-toc-section aria-labelledby="results-title"><div class="container">
-      <div class="section-heading"><p class="eyebrow">The central finding</p><h2 id="results-title"><span class="section-number">06</span><span class="heading-text">Discovering the blocker<br>is the bottleneck.</span></h2></div>
-      <div class="finding-layout"><div class="finding-copy"><p class="lead">Models are better at acting on a known blocker than discovering it from the specification alone.</p><p>In a controlled comparison with GPT-5.6-Sol on all 163 real-world instances, providing the annotated blocker raises clarification success by <strong>67.0 percentage points</strong>.</p><p class="small-note">Same model, output schema, decoding settings, and evaluation protocol. Both bars measure Macro-CAS.</p></div><figure class="comparison" aria-label="Macro-CAS improves from 13.6 percent end-to-end to 80.6 percent defect-guided"><div class="bar-row"><div><span>End-to-end</span><b>13.6<small>%</small></b></div><div class="bar-track"><span style="width:13.6%"></span></div><p>Specification only</p></div><div class="bar-row guided"><div><span>Defect-guided</span><b>80.6<small>%</small></b></div><div class="bar-track"><span style="width:80.6%"></span></div><p>Specification + annotated blocker</p></div><figcaption>Clarification success on real-world instances (Macro-CAS ↑)</figcaption></figure></div>
+      <div class="section-heading"><p class="eyebrow">13-model evaluation</p><h2 id="results-title"><span class="section-number">06</span><span class="heading-text">Benchmark results</span></h2><p>Explore performance across readiness assessment, defect localization, and clarification action generation on both instance sets.</p></div>
       <div class="leaderboard-header"><div><p class="eyebrow">13-model evaluation</p><h3>Compare real-world and synthetic results</h3></div></div>
       <div class="results-explorer" id="results-explorer" aria-busy="true">
         <div class="explorer-controls">
@@ -147,7 +146,24 @@
         <p class="explorer-footnote" id="table-context" hidden></p>
         <div class="table-scroll" id="results-table-wrap" tabindex="0" role="region" aria-label="Selected model results" hidden><table class="results-table"><caption class="sr-only" id="results-table-caption">Results for selected models.</caption><thead><tr><th scope="col">Model</th><th scope="col"><button type="button" data-order="0">Readiness <span>Macro-F1 ↑</span></button></th><th scope="col"><button type="button" data-order="1">Localization <span>Macro DRR ↑</span></button></th><th scope="col"><button type="button" data-order="2">Clarification <span>Macro-CAS ↑</span></button></th><th scope="col">Δ Real − Synth.<small id="score-gap-metric">Macro-F1 · pp</small></th></tr></thead><tbody id="results-body"></tbody></table></div>
       </div>
-      <div class="utility" id="findings" data-toc-section><div><p class="eyebrow">From clarification to implementation</p><h3><span class="section-number">07</span><span class="heading-text">Resolving the gap<br>changes the outcome.</span></h3><p>With gold resolutions supplied, clarification-assisted generation improves both specification readiness and executable code.</p></div><div class="utility-results"><div><span>READY specifications</span><p>14% <span>to</span> <strong>98%</strong></p><small>50 real-world instances · blinded human evaluation</small></div><div><span>Target fidelity in code</span><p>30% <span>to</span> <strong>90%</strong></p><small>20 controlled instances · bounded components</small></div></div></div><p class="small-note utility-note">These studies measure the utility of successful clarification under oracle conditions: the annotated defect and gold resolution are provided. They are separate from end-to-end agent performance.</p>
+    </div></section>
+
+    <section class="section key-findings-section" id="findings" data-toc-section aria-labelledby="findings-title"><div class="container">
+      <div class="section-heading"><p class="eyebrow">Evidence behind the takeaways</p><h2 id="findings-title"><span class="section-number">07</span><span class="heading-text">Key findings</span></h2><p>Four findings from the paper. Compare the instance sets in the first two charts, then examine what changes when the blocker and its resolution are supplied.</p></div>
+      <article class="finding-story" aria-labelledby="finding-readiness-title">
+        <p class="eyebrow">Finding 1 · Readiness assessment</p><h3 id="finding-readiness-title">Readiness judgments remain unreliable on real-world gaps.</h3>
+        <div class="finding-story-layout"><div class="finding-story-copy"><p>GPT-5.6-Sol reaches <strong>67.5 Macro-F1</strong> on real-world specifications, compared with <strong>86.4</strong> on controlled synthetic instances.</p><p>On the real-world subset, it accepts 31% of underspecified inputs and rejects 34% of ready ones. A readiness label alone is not a dependable implementation gate.</p><p class="small-note">Paper: RQ1 and Table 15. Task 1 evaluates 100 READY and 100 NOT READY specifications per subset.</p></div><div class="finding-chart" data-finding-chart="readiness"><div class="finding-set-switch" role="group" aria-label="Readiness instance set"><button type="button" data-finding-set="real" aria-pressed="true">Real-world</button><button type="button" data-finding-set="synthetic" aria-pressed="false">Synthetic</button></div><p class="finding-chart-context">GPT-5.6-Sol · Real-world</p><div class="finding-metric-bars"></div><p class="small-note">Macro-F1: higher is better. UnsafePass and OverFlag: lower is better. All values are percentages.</p></div></div>
+      </article>
+      <article class="finding-story" aria-labelledby="finding-localization-title">
+        <p class="eyebrow">Finding 2 · Defect localization</p><h3 id="finding-localization-title">Predicting a defect category does not mean finding the blocker.</h3>
+        <div class="finding-story-layout"><div class="finding-story-copy"><p>On real-world instances, GPT-5.6-Sol reaches <strong>60.1% Level-1 accuracy</strong>, but identifies the annotated blocker in only <strong>16.0%</strong> of instances. Macro DRR, which also requires correct taxonomy labels, is <strong>9.6%</strong>.</p><p>Models can name a plausible defect category while missing the unresolved decision that determines the implementation.</p><p class="small-note">Paper: RQ2 and Table 16. Real-world: 163 instances; synthetic: 200. Metrics have different success criteria and are not successive filtering stages.</p></div><div class="finding-chart" data-finding-chart="localization"><div class="finding-set-switch" role="group" aria-label="Localization instance set"><button type="button" data-finding-set="real" aria-pressed="true">Real-world</button><button type="button" data-finding-set="synthetic" aria-pressed="false">Synthetic</button></div><p class="finding-chart-context">GPT-5.6-Sol · Real-world</p><div class="finding-metric-bars"></div><p class="small-note">All values are percentages; higher is better. Loc-Acc measures matching the annotated blocker; Macro DRR additionally requires both taxonomy labels.</p></div></div>
+      </article>
+      <article class="finding-story" aria-labelledby="finding-blocker-title"><p class="eyebrow">Finding 3 · Blocker availability</p><h3 id="finding-blocker-title">Models clarify much better once the blocker is known.</h3>
+      <div class="finding-layout"><div class="finding-copy"><p class="lead">Models are better at acting on a known blocker than discovering it from the specification alone.</p><p>In a controlled comparison with GPT-5.6-Sol on all 163 real-world instances, providing the annotated blocker raises clarification success by <strong>67.0 percentage points</strong>.</p><p class="small-note">Same model, output schema, decoding settings, and evaluation protocol. Both bars measure Macro-CAS.</p></div><figure class="comparison" aria-label="Macro-CAS improves from 13.6 percent end-to-end to 80.6 percent defect-guided"><div class="bar-row"><div><span>End-to-end</span><b>13.6<small>%</small></b></div><div class="bar-track"><span style="width:13.6%"></span></div><p>Specification only</p></div><div class="bar-row guided"><div><span>Defect-guided</span><b>80.6<small>%</small></b></div><div class="bar-track"><span style="width:80.6%"></span></div><p>Specification + annotated blocker</p></div><figcaption>Clarification success on real-world instances (Macro-CAS ↑)</figcaption></figure></div>
+      <p class="small-note finding-source">Paper: RQ3 and Table 3. The controlled comparison uses all 163 real-world instances.</p></article>
+      <article class="finding-story" aria-labelledby="finding-utility-title"><p class="eyebrow">Finding 4 · Downstream utility</p><h3 id="finding-utility-title">Successful clarification improves downstream implementation.</h3>
+      <div class="utility" id="oracle-utility"><div><p class="eyebrow">From clarification to implementation</p><h3><span class="heading-text">Resolving the gap changes the outcome.</span></h3><p>With gold resolutions supplied, clarification-assisted generation improves both specification readiness and executable code.</p></div><div class="utility-results"><div><span>READY specifications</span><p>14% <span>to</span> <strong>98%</strong></p><small>50 real-world instances · blinded human evaluation</small></div><div><span>Target fidelity in code</span><p>30% <span>to</span> <strong>90%</strong></p><small>20 controlled instances · bounded components</small></div></div></div><p class="small-note utility-note">These studies measure the utility of successful clarification under oracle conditions: the annotated defect and gold resolution are provided. They are separate from end-to-end agent performance.</p>
+      <p class="small-note finding-source">Paper: oracle clarification study and controlled code-generation study.</p></article>
     </div></section>
 
     <section class="section conclusions-section" id="conclusions" data-toc-section aria-labelledby="conclusions-title">
@@ -161,13 +177,13 @@
           </article>
           <article class="conclusion-card">
             <div class="conclusion-card-heading"><span class="conclusion-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M10 7v6M7 10h6"/></svg></span><h3>Finding the blocker is the bottleneck</h3></div>
-            <p>On real-world instances, supplying the annotated blocker raises GPT-5.6-Sol’s clarification success from <strong>13.6% to 80.6%</strong>. Acting on a known gap is far easier than discovering it.</p>
-            <a href="#results">Controlled comparison · Macro-CAS <span aria-hidden="true">↗</span></a>
+            <p>Developing stronger blocker discovery is a central priority: models are substantially better at acting on an annotated gap than finding it from the specification alone.</p>
+            <a href="#finding-blocker-title">Evidence from blocker availability <span aria-hidden="true">↗</span></a>
           </article>
           <article class="conclusion-card">
             <div class="conclusion-card-heading"><span class="conclusion-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4zM8 8h8M8 12h5"/></svg></span><h3>Clarification can change the outcome</h3></div>
-            <p>In the 50-instance oracle study, providing the defect, clarification action, and gold resolution raises specification readiness from <strong>14% to 98%</strong>.</p>
-            <a href="#findings">Utility under oracle conditions <span aria-hidden="true">↗</span></a>
+            <p>Resolving a specification gap can improve readiness and implementation fidelity. The oracle studies motivate workflows that obtain the missing information before generating code.</p>
+            <a href="#oracle-utility">Utility under oracle conditions <span aria-hidden="true">↗</span></a>
           </article>
           <article class="conclusion-card">
             <div class="conclusion-card-heading"><span class="conclusion-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8h10a3 3 0 0 1 3 3v7H4v-7a3 3 0 0 1 3-3ZM12 3v5M2 12v3M22 12v3M8 21h8M9 14h.01M15 14h.01"/></svg></span><h3>Build agents that resolve gaps</h3></div>
@@ -202,5 +218,6 @@ PY</code></pre></section>
   </main>
   <footer class="site-footer"><div class="container"><a class="brand" href="#"><img src="assets/logo.svg" width="30" height="28" alt=""><span>Idea<span>AMBIG</span></span></a><p>From research ideas to faithful implementation.</p><div><a href="https://arxiv.org/abs/2609.10539">Paper</a><a href="https://github.com/Yiling-Ma/IdeaAMBIG">Code &amp; data</a><a href="https://github.com/Yiling-Ma/IdeaAMBIG-website">Website source</a></div></div></footer>
   <p id="copy-status" class="sr-only" role="status" aria-live="polite"></p>
+  <script src="findings.js?v=1" defer></script>
 </body>
 </html>
