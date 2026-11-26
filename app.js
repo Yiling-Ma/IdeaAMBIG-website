@@ -4,9 +4,11 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 let examples = [], results = [], activeTask = 1, activeSubset = "real", sortColumn = 0;
 
+const readable = value => String(value).replaceAll("_", " ");
+
 function element(tag, text, className) {
   const node = document.createElement(tag);
-  if (text !== undefined) node.textContent = text;
+  if (text !== undefined) node.textContent = readable(text);
   if (className) node.className = className;
   return node;
 }
@@ -14,21 +16,26 @@ function element(tag, text, className) {
 function renderExample() {
   const example = examples.find(e => e.subset === $("#example-subset").value && e.type === $("#example-type").value);
   if (!example) return;
-  $("#example-category").textContent = example.category;
-  $("#example-title").textContent = example.title;
+  $("#example-category").textContent = readable(example.category);
+  $("#example-title").textContent = readable(example.title);
   $("#example-source").href = example.source;
-  $("#example-spec").textContent = example.specification;
-  $("#example-reference").textContent = example.reference;
+  $("#example-source").textContent = example.subset === "synthetic" ? "Reference report" : "Source evidence";
+  $("#example-record").href = example.record_url;
+  $("#example-spec-label").textContent = example.is_excerpt ? "Underspecified specification · excerpt" : "Underspecified specification";
+  $("#example-origin").textContent = example.subset === "synthetic" ? "Controlled synthetic · single injected defect" : "Real-world · reconstructed gap";
+  $("#example-spec").textContent = readable(example.specification);
+  $("#example-reference").textContent = readable(example.reference);
   $(".reference").open = false;
   const panel = $("#task-panel");
   panel.replaceChildren();
   panel.setAttribute("aria-labelledby", `task-tab-${activeTask}`);
   if (activeTask === 1) {
-    panel.append(element("h4", "Gold readiness annotation"), element("p", "NOT_READY", "readiness-label"), element("p", "This specification contains one annotated implementation-critical defect. Select Target defect to inspect the unresolved decision."));
+    panel.append(element("h4", "Gold readiness annotation"), element("p", "NOT READY", "readiness-label"), element("p", example.readiness_reason));
   } else if (activeTask === 2) {
     panel.append(element("h4", `${example.type} · ${example.category}`), element("p", example.blocker));
+    if (example.source_context) panel.append(element("h4", "Evidence context"), element("p", example.source_context));
   } else {
-    panel.append(element("h4", "Gold clarification action · annotated defect supplied"), element("p", example.clarification));
+    panel.append(element("h4", "Gold clarification action · annotated defect supplied"), element("p", example.action_type === "evidence_seeking" ? "Action type: Evidence seeking" : "Action type: Clarification question", "action-kind"), element("p", example.clarification));
     if (example.evidence) panel.append(element("p", `Information to seek: ${example.evidence}`));
   }
 }
@@ -47,8 +54,8 @@ function renderResults() {
     body.append(row);
   });
   $("#results-sample").textContent = activeSubset === "real"
-    ? "Task 1: 100 READY + 100 NOT_READY specifications. Tasks 2–3: 163 real-world instances."
-    : "Task 1: 100 READY + 100 NOT_READY specifications. Tasks 2–3: a fixed sample of 200 synthetic instances.";
+    ? "Task 1: 100 READY + 100 NOT READY specifications. Tasks 2–3: 163 real-world instances."
+    : "Task 1: 100 READY + 100 NOT READY specifications. Tasks 2–3: a fixed sample of 200 synthetic instances.";
   $$("[data-sort]").forEach(button => button.closest("th").setAttribute("aria-sort", Number(button.dataset.sort) === sortColumn ? "descending" : "none"));
 }
 
@@ -162,7 +169,7 @@ async function loadData(path) {
   if (!response.ok) throw new Error(`Unable to load ${path}`);
   return response.json();
 }
-loadData("data/examples.json").then(data => {examples = data;renderExample();}).catch(() => {
+loadData("data/examples.json?v=curated-examples-1").then(data => {examples = data;renderExample();}).catch(() => {
   $("#example-title").textContent = "Examples could not be loaded.";
   $("#example-spec").textContent = "Please reload this page or browse the released dataset on GitHub using the link above.";
 });

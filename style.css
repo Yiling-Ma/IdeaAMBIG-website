@@ -66,3 +66,7 @@ body{padding-left:240px}
 
 .benchmark-tasks{padding-top:64px}.benchmark-tasks .task-grid{margin-bottom:0}
 @media(max-width:760px){.benchmark-tasks{padding-top:40px}}
+
+.example-origin{font-size:.875rem;color:var(--olive);margin:8px 0 24px}.example-record-link{margin:14px 0 0;font-size:.875rem}.example-record-link a{color:var(--brick);text-decoration:underline;text-underline-offset:3px}.action-kind{font-size:.875rem;font-weight:600;color:var(--olive)}
+
+.example-shell .spec-text{padding-bottom:0}.example-record-link{margin:14px 0 24px}
