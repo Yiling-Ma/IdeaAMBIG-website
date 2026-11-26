@@ -17,9 +17,12 @@ files load correctly. No installation or build step is required.
 
 ## Content
 
-- `index.html`: paper information, tasks, construction, taxonomy, results, resources, and citation.
+- `index.html`: paper information, tasks, construction, taxonomy, results, findings, conclusions, resources, and citation.
 - `style.css`: responsive layout using the project's brick-red, orange, olive, and powder-blue palette.
-- `app.js`: example explorer, sortable results, scroll-aware contents navigation, mobile drawer, and copy controls.
+- `app.js`: example explorer, scroll-aware contents navigation, mobile drawer, and copy controls.
+- `results-explorer.js`: model rankings, subset comparison, and sortable results.
+- `distribution-explorer.js`: interactive dataset coverage and defect distributions.
+- `findings.js`: paper-grounded readiness and localization charts with animated subset switching.
 - `data/examples.json`: six curated released records, one per subset and Level-1 type, with complete source specifications, full READY references, and gold clarification actions. Every record retains its original ID and a direct link to its JSONL line.
 - `data/results.json`: all 78 main-result values for the 13 models, transcribed from the latest paper.
 - `assets/`: original IdeaAMBIG logo, paper construction figure, and locally hosted font.
@@ -29,7 +32,7 @@ website buildless. All paths are relative, so the site works under the
 `/IdeaAMBIG-website/` project path.
 
 The left contents rail scrolls independently on desktop and highlights the
-current section. Its nine entries match the numbered content headings. On
+current section. Its ten entries match the numbered content headings. On
 smaller screens, the header menu opens the same contents in a keyboard-accessible
 drawer, with Escape and backdrop dismissal.
 
@@ -91,3 +94,18 @@ Single-subset views retain the sortable three-metric score table.
 
 Interaction reference: [GRAPE-Bench](https://zhangce01.github.io/grape-bench/).
 The code and visual styling are specific to IdeaAMBIG.
+
+## Final page structure
+
+01 Overview → 02 Data construction → 03 Benchmark tasks → 04 Defect taxonomy →
+05 Dataset examples → 06 Benchmark results → 07 Key findings → 08 Conclusions →
+09 Get started → 10 Citation.
+
+Results contains the complete interactive model comparison. Findings explains four
+paper-grounded observations with their evidence; Conclusions states the implications.
+The first two findings switch between real-world and synthetic results for
+GPT-5.6-Sol (paper Tables 15–16). Oracle utility remains explicitly identified.
+
+Unused static distribution SVG and uncropped pipeline PNG have been removed.
+The pipeline SVG embeds its own image and requires no external PNG. The original
+distribution PDF remains linked as a source reference.
