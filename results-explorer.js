@@ -10,7 +10,7 @@
     {name:'Clarification', metric:'Macro-CAS', sample:'Task 3: 163 real-world instances and 200 controlled synthetic instances. The annotated defect is supplied.'}
   ];
   const groups = {
-    proprietary: 'Frontier proprietary models',
+    frontier: 'Frontier models',
     reasoning: 'Open-weight reasoning models',
     general: 'Open-weight general models'
   };
@@ -141,7 +141,7 @@
   $$('[data-preset]').forEach(button=>button.addEventListener('click',()=>{selected=new Set(rows.filter(row=>button.dataset.preset==='all'||row.group===groups[button.dataset.preset]).map(row=>row.model));if(!selected.has(pinned))pinned=null;hovered=null;render();}));
   $('#clear-rank-highlight').addEventListener('click',()=>{pinned=null;hovered=null;highlight();});
   root.addEventListener('keydown',event=>{if(event.key==='Escape'){pinned=null;hovered=null;highlight();}});
-  fetch('data/results.json?v=rank-compare-1').then(response=>{if(!response.ok)throw new Error('Unable to load results');return response.json();}).then(data=>{
+  fetch('data/results.json?v=frontier-1').then(response=>{if(!response.ok)throw new Error('Unable to load results');return response.json();}).then(data=>{
     if(!Array.isArray(data)||data.some(r=>!r.model||!Array.isArray(r.real)||!Array.isArray(r.synthetic)||r.real.length!==3||r.synthetic.length!==3||[...r.real,...r.synthetic].some(n=>!Number.isFinite(n))))throw new Error('Invalid result data');
     rows=data;selected=new Set(rows.map(row=>row.model));root.setAttribute('aria-busy','false');render();
   }).catch(()=>{root.setAttribute('aria-busy','false');$('#results-sample').textContent='Results could not be loaded. Reload this page or consult the paper.';});

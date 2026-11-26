@@ -1,7 +1,7 @@
 [
   {
     "model": "GPT-5.6-Sol",
-    "group": "Frontier proprietary models",
+    "group": "Frontier models",
     "real": [
       67.5,
       9.6,
@@ -15,7 +15,7 @@
   },
   {
     "model": "Claude Sonnet 5",
-    "group": "Frontier proprietary models",
+    "group": "Frontier models",
     "real": [
       59.3,
       6.8,
@@ -29,7 +29,7 @@
   },
   {
     "model": "Gemini 3.1 Pro Preview",
-    "group": "Frontier proprietary models",
+    "group": "Frontier models",
     "real": [
       45.8,
       3.4,
@@ -43,7 +43,7 @@
   },
   {
     "model": "DeepSeek-V3.2",
-    "group": "Frontier proprietary models",
+    "group": "Frontier models",
     "real": [
       44.5,
       5.9,

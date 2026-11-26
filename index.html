@@ -21,10 +21,10 @@
   <meta property="og:image" content="https://yiling-ma.github.io/IdeaAMBIG-website/assets/social.png">
   <link rel="canonical" href="https://yiling-ma.github.io/IdeaAMBIG-website/">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-  <link rel="stylesheet" href="style.css?v=findings-1">
+  <link rel="stylesheet" href="style.css?v=frontier-1">
   <link rel="stylesheet" href="theme.css?v=1">
   <script src="app.js?v=theme-1" defer></script>
-  <script src="results-explorer.js?v=theme-1" defer></script>
+  <script src="results-explorer.js?v=frontier-1" defer></script>
   <script src="distribution-explorer.js?v=theme-1" defer></script>
 </head>
 <body>
@@ -147,7 +147,7 @@
         <div class="explorer-controls">
           <div class="explorer-control-row"><span class="explorer-label" id="results-view-label">View</span><div class="explorer-pills" role="group" aria-labelledby="results-view-label"><button type="button" data-view="compare" aria-pressed="true">Compare sets</button><button type="button" data-view="real" aria-pressed="false">Real-world</button><button type="button" data-view="synthetic" aria-pressed="false">Synthetic</button></div></div>
           <div class="explorer-control-row"><span class="explorer-label" id="results-metric-label">Metric</span><div class="explorer-pills" role="group" aria-labelledby="results-metric-label"><button type="button" data-metric="0" aria-pressed="true">Readiness <small>Macro-F1</small></button><button type="button" data-metric="1" aria-pressed="false">Localization <small>Macro DRR</small></button><button type="button" data-metric="2" aria-pressed="false">Clarification <small>Macro-CAS</small></button></div></div>
-          <div class="explorer-control-row"><span class="explorer-label" id="results-models-label">Models</span><div class="explorer-pills model-presets" role="group" aria-labelledby="results-models-label"><button type="button" data-preset="all" aria-pressed="true">All 13</button><button type="button" data-preset="proprietary" aria-pressed="false">Frontier proprietary</button><button type="button" data-preset="reasoning" aria-pressed="false">Open reasoning</button><button type="button" data-preset="general" aria-pressed="false">Open general</button><button type="button" data-preset="none" aria-pressed="false">Clear</button></div></div>
+          <div class="explorer-control-row"><span class="explorer-label" id="results-models-label">Models</span><div class="explorer-pills model-presets" role="group" aria-labelledby="results-models-label"><button type="button" data-preset="all" aria-pressed="true">All 13</button><button type="button" data-preset="frontier" aria-pressed="false">Frontier models</button><button type="button" data-preset="reasoning" aria-pressed="false">Open reasoning</button><button type="button" data-preset="general" aria-pressed="false">Open general</button><button type="button" data-preset="none" aria-pressed="false">Clear</button></div></div>
           <div class="model-toggles" id="model-toggles" role="group" aria-label="Include or exclude individual models"></div>
         </div>
         <p class="explorer-sample" id="results-sample" role="status">Loading model results…</p>
