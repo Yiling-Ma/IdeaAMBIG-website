@@ -78,8 +78,9 @@ is computed from its counts, not averaged across subset percentages.
 
 `data/distribution-audit.csv` records the ID-level joins; see
 `data/distributions-provenance.md` for source definitions and the correction
-to the original component plotting input. The supplied source figure remains
-available unchanged at `assets/dataset-distributions.pdf`.
+to the original component plotting input. The downloadable figure is synchronized with these corrected counts at
+`assets/dataset-distributions-corrected.pdf`; only panel (d) is recalculated,
+while panels (a)–(c) and the shared legend preserve the supplied artwork.
 
 ## Interactive subset comparison
 
@@ -107,5 +108,5 @@ The first two findings switch between real-world and synthetic results for
 GPT-5.6-Sol (paper Tables 15–16). Oracle utility remains explicitly identified.
 
 Unused static distribution SVG and uncropped pipeline PNG have been removed.
-The pipeline SVG embeds its own image and requires no external PNG. The original
-distribution PDF remains linked as a source reference.
+The pipeline SVG embeds its own image and requires no external PNG. The corrected
+distribution PDF remains linked alongside the interactive explorer.

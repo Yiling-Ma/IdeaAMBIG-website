@@ -11,7 +11,10 @@ unweighted average of percentages. Every dimension sums to these totals.
   and the original `slot_category_mapping.json`; filtered by released subset IDs.
 - Evidence sources: provenance fields of the released records.
 - `distribution-audit.csv` provides the ID-level join for independent checking.
-- The static source PDF is preserved unchanged at `assets/dataset-distributions.pdf`.
+- The static figure PDF is synchronized with the corrected component counts at
+  `assets/dataset-distributions-corrected.pdf`. Panels (a)–(c) and the shared
+  legend preserve the original artwork; panel (d) uses the same exact counts
+  as the interactive component view. This replaces the earlier uncorrected PDF.
 
 ## Correction to the original component plotting input
 
