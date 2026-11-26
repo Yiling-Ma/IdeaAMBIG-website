@@ -52,18 +52,74 @@ function renderResults() {
   $$("[data-sort]").forEach(button => button.closest("th").setAttribute("aria-sort", Number(button.dataset.sort) === sortColumn ? "descending" : "none"));
 }
 
-$(".menu-toggle").addEventListener("click", () => {
-  const isOpen = $(".menu-toggle").getAttribute("aria-expanded") === "true";
-  $(".menu-toggle").setAttribute("aria-expanded", String(!isOpen));
-  $(".menu-toggle").setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
-  $("#nav-links").classList.toggle("open", !isOpen);
-});
-$$("#nav-links a").forEach(link => link.addEventListener("click", () => {
-  $("#nav-links").classList.remove("open");$(".menu-toggle").setAttribute("aria-expanded", "false");
+const contentsToggle = $(".menu-toggle");
+const contentsRail = $("#contents-rail");
+const contentsBackdrop = $(".toc-backdrop");
+const contentsLinks = $$(".contents-links a");
+const contentsSections = $$("[data-toc-section]");
+const drawerViewport = window.matchMedia("(max-width: 1099px)");
+
+function setContentsOpen(open, returnFocus = false) {
+  document.body.classList.toggle("contents-open", open);
+  contentsToggle.setAttribute("aria-expanded", String(open));
+  contentsToggle.setAttribute("aria-label", open ? "Close contents" : "Open contents");
+  contentsBackdrop.hidden = !open;
+  contentsRail.inert = drawerViewport.matches && !open;
+  if (open) (contentsLinks.find(link => link.getAttribute("aria-current")) || contentsLinks[0]).focus({preventScroll: true});
+  else if (returnFocus) contentsToggle.focus({preventScroll: true});
+}
+
+contentsToggle.addEventListener("click", () => setContentsOpen(contentsToggle.getAttribute("aria-expanded") !== "true"));
+contentsBackdrop.addEventListener("click", () => setContentsOpen(false, true));
+contentsLinks.forEach(link => link.addEventListener("click", () => {
+  const target = document.getElementById(link.hash.slice(1));
+  setContentsOpen(false);
+  if (drawerViewport.matches && target) {
+    target.setAttribute("tabindex", "-1");
+    target.focus({preventScroll: true});
+  }
 }));
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {$("#nav-links").classList.remove("open");$(".menu-toggle").setAttribute("aria-expanded", "false");}
+  if (event.key === "Escape" && contentsToggle.getAttribute("aria-expanded") === "true") setContentsOpen(false, true);
+  if (event.key === "Tab" && drawerViewport.matches && contentsToggle.getAttribute("aria-expanded") === "true") {
+    const focusable = [contentsToggle, ...contentsLinks, $(".contents-paper")];
+    const index = focusable.indexOf(document.activeElement);
+    const next = (index + (event.shiftKey ? -1 : 1) + focusable.length) % focusable.length;
+    event.preventDefault();focusable[next].focus();
+  }
 });
+drawerViewport.addEventListener("change", () => setContentsOpen(false));
+setContentsOpen(false);
+
+let contentsFrame = 0;
+function updateContents() {
+  contentsFrame = 0;
+  const marker = Math.max(120, window.innerHeight * 0.24);
+  let active = contentsSections[0];
+  for (const section of contentsSections) {
+    if (section.getBoundingClientRect().top <= marker) active = section;
+  }
+  // The final section can be too short to reach the reading marker.
+  if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 3) active = contentsSections[contentsSections.length - 1];
+  for (const link of contentsLinks) {
+    const current = link.hash === `#${active.id}`;
+    if (current) {
+      const changed = !link.hasAttribute("aria-current");
+      link.setAttribute("aria-current", "location");
+      if (changed) {
+        const list = $(".contents-links"), itemBox = link.getBoundingClientRect(), listBox = list.getBoundingClientRect();
+        if (itemBox.top < listBox.top) list.scrollTop -= listBox.top - itemBox.top + 8;
+        else if (itemBox.bottom > listBox.bottom) list.scrollTop += itemBox.bottom - listBox.bottom + 8;
+      }
+    } else link.removeAttribute("aria-current");
+  }
+}
+function scheduleContents() {if (!contentsFrame) contentsFrame = requestAnimationFrame(updateContents);}
+window.addEventListener("scroll", scheduleContents, {passive: true});
+window.addEventListener("resize", scheduleContents);
+window.addEventListener("hashchange", scheduleContents);
+new ResizeObserver(scheduleContents).observe($("main"));
+updateContents();
 
 $$("[data-task]").forEach(button => button.addEventListener("click", () => {
   activeTask = Number(button.dataset.task);

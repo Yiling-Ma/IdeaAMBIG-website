@@ -19,7 +19,7 @@ files load correctly. No installation or build step is required.
 
 - `index.html`: paper information, tasks, construction, taxonomy, results, resources, and citation.
 - `style.css`: responsive layout using the project's brick-red, orange, olive, and powder-blue palette.
-- `app.js`: example explorer, sortable results, mobile navigation, and copy controls.
+- `app.js`: example explorer, sortable results, scroll-aware contents navigation, mobile drawer, and copy controls.
 - `data/examples.json`: six unchanged example excerpts and annotations from the released benchmark, one per subset and Level-1 type; every record retains its original ID and source evidence URL.
 - `data/results.json`: all 78 main-result values for the 13 models, transcribed from the latest paper.
 - `assets/`: original IdeaAMBIG logo, paper construction figure, and locally hosted font.
@@ -27,6 +27,11 @@ files load correctly. No installation or build step is required.
 GitHub Pages serves `main` from the repository root. `.nojekyll` keeps the
 website buildless. All paths are relative, so the site works under the
 `/IdeaAMBIG-website/` project path.
+
+The left contents rail scrolls independently on desktop and highlights the
+current section. Its nine entries match the numbered content headings. On
+smaller screens, the header menu opens the same contents in a keyboard-accessible
+drawer, with Escape and backdrop dismissal.
 
 ## Design references
 
