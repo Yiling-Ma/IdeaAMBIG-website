@@ -16,7 +16,7 @@
   };
   const ns = 'http://www.w3.org/2000/svg';
   let rows = [], selected = new Set(), view = 'compare', metric = 0, pinned = null, hovered = null;
-  const colors = {up:'#788743', down:'#ab240e', same:'#c5c7bc'};
+  const colors = {up:'var(--olive)', down:'var(--brick)', same:'var(--rank-neutral)'};
   const signed = number => `${number > 0 ? '+' : number < 0 ? '−' : ''}${Math.abs(number).toFixed(1)}`;
   function node(tag, text, cls) {
     const n = document.createElement(tag);

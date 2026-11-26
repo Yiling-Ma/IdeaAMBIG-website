@@ -2,6 +2,30 @@
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
+const themeToggle = $(".theme-toggle");
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+function applyTheme(theme) {
+  const dark = theme === "dark";
+  document.documentElement.dataset.theme = theme;
+  themeToggle.setAttribute("aria-pressed", String(dark));
+  const label = `Switch to ${dark ? "light" : "dark"} mode`;
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.title = label;
+  $(".theme-toggle-label").textContent = dark ? "Light" : "Dark";
+  $("meta[name=theme-color]").content = dark ? "#191c19" : "#fcfcf9";
+}
+applyTheme(document.documentElement.dataset.theme || (systemTheme.matches ? "dark" : "light"));
+themeToggle.addEventListener("click", () => {
+  const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  applyTheme(theme);
+  try { localStorage.setItem("ideaambig-theme", theme); } catch {}
+});
+systemTheme.addEventListener("change", event => {
+  let saved;
+  try { saved = localStorage.getItem("ideaambig-theme"); } catch {}
+  if (saved !== "light" && saved !== "dark") applyTheme(event.matches ? "dark" : "light");
+});
+
 let examples = [], activeTask = 1;
 
 const readable = value => String(value).replaceAll("_", " ");

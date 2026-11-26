@@ -4,7 +4,7 @@
   const root=document.querySelector('#distribution-explorer');
   const $=s=>root.querySelector(s), $$=s=>[...root.querySelectorAll(s)];
   const names={real:'Real-world',synthetic:'Synthetic',combined:'Combined'};
-  const colors={real:'#ab240e',synthetic:'#f3a653',combined:'#788743'};
+  const colors={real:'var(--brick)',synthetic:'#f3a653',combined:'var(--olive)'};
   let data, dimension='level1', subset='compare', unit='share', sort=false, pinned=null, hover=null;
   const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n;};
   const cats=()=>data.dimensions[dimension].categories;

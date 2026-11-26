@@ -1,0 +1,73 @@
+/* Theme controls and author affiliations share one layout in both palettes. */
+:root{color-scheme:light;--rank-neutral:#c5c7bc}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:12px}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);font-size:14px;font-weight:550;line-height:1.4}
+.theme-toggle:hover{border-color:var(--olive);color:var(--brick)}
+.theme-toggle svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.theme-sun{display:none}
+[data-theme=dark] .theme-sun{display:block}
+[data-theme=dark] .theme-moon{display:none}
+.authors>.author{display:inline-flex;align-items:baseline;gap:.16em;white-space:nowrap;color:var(--ink)}
+.authors .author sup{position:relative;top:-.6em;font-size:.6em;line-height:0}
+.authors>.author-separator{color:var(--muted)}
+.affiliations{margin-bottom:27px}
+
+/* Charcoal surfaces with the paper's warm orange and olive accents. */
+:root[data-theme=dark]{color-scheme:dark;--brick:#ff9974;--vermilion:#ff9864;--orange:#f8b66a;--olive:#bfce83;--sage:#aebf79;--blue:#bcdaeb;--ink:#eceee5;--muted:#b5bcac;--line:#41493b;--cream:#392a21;--paper:#191c19;--surface:#222720;--surface-soft:#2b3226;--rank-neutral:#718069}
+[data-theme=dark] ::selection{background:#76432c;color:#fff5e9}
+[data-theme=dark] .site-header{background:rgba(25,28,25,.96)}
+[data-theme=dark] .contents-rail{background:#1e241c}
+[data-theme=dark] .contents-links{scrollbar-color:#59664a transparent}
+[data-theme=dark] .contents-links a{color:var(--muted)}
+[data-theme=dark] .toc-number{color:#a1af8f}
+[data-theme=dark] .contents-links a:hover{background:var(--surface-soft);color:var(--ink)}
+[data-theme=dark] .contents-links a[aria-current=location]{background:#343b2a;color:var(--brick)}
+[data-theme=dark] .toc-backdrop{background:#090c09a6}
+[data-theme=dark] .button{border-color:var(--line)}
+[data-theme=dark] .button:hover{background:var(--surface-soft)}
+[data-theme=dark] .button.primary{background:#b93519;border-color:#b93519;color:#fff}
+[data-theme=dark] .button.primary:hover{background:#cd4223}
+[data-theme=dark] .benchmark-section{background:#20261e}
+[data-theme=dark] :is(.task-card,.composition,.taxonomy-list details,.utility,.utility-results>div+div){border-color:var(--line)}
+[data-theme=dark] .task-card{border-top-color:var(--brick)}
+[data-theme=dark] .task-card:nth-child(2){border-top-color:var(--orange)}
+[data-theme=dark] .task-card:nth-child(3){border-top-color:var(--olive)}
+[data-theme=dark] :is(.example-shell,.results-explorer,.distribution-explorer,.conclusion-card,.finding-chart,.comparison,.table-scroll){background:var(--surface);border-color:var(--line)}
+[data-theme=dark] .spec-text{color:#dce2d1}
+[data-theme=dark] .task-panel{background:var(--surface-soft)}
+[data-theme=dark] select{border-color:var(--line);background-color:var(--surface);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m4 6 4 4 4-4' fill='none' stroke='%23b5bcac' stroke-width='1.4'/%3E%3C/svg%3E")}
+[data-theme=dark] :is(.findings-section,.conclusions-section){background:#20241e;border-color:var(--line)}
+[data-theme=dark] :is(.bar-track,.finding-metric-track,.dist-bar-track){background:#414a36}
+[data-theme=dark] .comparison figcaption{border-color:var(--line)}
+[data-theme=dark] .segmented{background:var(--surface-soft)}
+[data-theme=dark] .segmented button.active{background:var(--surface);color:var(--brick)}
+[data-theme=dark] .results-table thead{background:#303727}
+[data-theme=dark] :is(.results-table th,.results-table td){border-color:var(--line)}
+[data-theme=dark] .results-table tr.winner{background:#343e29}
+[data-theme=dark] :is(.explorer-pills button,.model-toggle,.finding-set-switch button,.rank-detail-row button,[id=distribution-clear]){background:var(--surface);border-color:var(--line);color:var(--muted)}
+[data-theme=dark] :is(.explorer-pills button,.model-toggle):hover{border-color:var(--olive);background:var(--surface-soft)}
+[data-theme=dark] :is(.explorer-pills button,.finding-set-switch button)[aria-pressed=true]{background:var(--olive);border-color:var(--olive);color:#1b2115}
+[data-theme=dark] .model-toggle[aria-pressed=true]{background:#323e25;border-color:#859855;color:var(--ink)}
+[data-theme=dark] .rank-node-bg{fill:#2b3226;stroke:#4a573e}
+[data-theme=dark] :is(.rank-model-name,.rank-score){fill:var(--ink)}
+[data-theme=dark] :is(.rank-number,.rank-column-heading){fill:var(--muted)}
+[data-theme=dark] .rank-metric-heading{fill:var(--olive)}
+[data-theme=dark] .rank-node.is-highlighted .rank-node-bg{fill:#3d4b2d;stroke:var(--olive)}
+[data-theme=dark] .rank-shift.rank-up{fill:var(--olive)}
+[data-theme=dark] .rank-shift.rank-down{fill:var(--brick)}
+[data-theme=dark] .rank-shift.rank-same{fill:var(--muted)}
+[data-theme=dark] .rank-same{color:var(--muted)}
+[data-theme=dark] .distribution-summary{background:#293122;border-color:var(--line)}
+[data-theme=dark] :is(.dist-breakdown-row,.dist-row){border-color:var(--line)}
+[data-theme=dark] .dist-row.is-active{background:#333f27}
+[data-theme=dark] .distribution-ring circle:first-child{stroke:#46513a}
+[data-theme=dark] .conclusion-card{border-top-color:var(--card-accent)}
+[data-theme=dark] .conclusion-card:nth-child(3){--card-accent:#f8b66a}
+[data-theme=dark] .conclusion-card:nth-child(4){--card-accent:#a6ccdc}
+[data-theme=dark] .conclusion-icon{background:color-mix(in srgb,var(--card-accent) 13%,var(--surface))}
+[data-theme=dark] .code-heading{background:var(--surface-soft)}
+[data-theme=dark] pre{background:var(--surface);color:#dce6cc}
+[data-theme=dark] .copy-button{border-color:var(--line)}
+[data-theme=dark] .copy-button:hover{background:var(--surface-soft)}
+[data-theme=dark] .skip-link{background:var(--surface);color:var(--ink)}
+@media(max-width:760px){.header-actions{gap:8px}.theme-toggle{padding:8px 10px;min-width:40px}.theme-toggle-label{display:none}.affiliations{margin-bottom:24px}}
