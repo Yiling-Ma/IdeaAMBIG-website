@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://yiling-ma.github.io/IdeaAMBIG-website/assets/social.png">
   <link rel="canonical" href="https://yiling-ma.github.io/IdeaAMBIG-website/">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-  <link rel="stylesheet" href="style.css?v=interactive-distributions-1">
+  <link rel="stylesheet" href="style.css?v=conclusions-1">
   <script src="app.js?v=rank-compare-1" defer></script>
   <script src="results-explorer.js?v=rank-compare-1" defer></script>
   <script src="distribution-explorer.js?v=interactive-1" defer></script>
@@ -39,8 +39,9 @@
       <a href="#examples"><span class="toc-number">05</span><span>Dataset examples</span></a>
       <a href="#results"><span class="toc-number">06</span><span>Benchmark results</span></a>
       <a href="#findings"><span class="toc-number">07</span><span>Clarification utility</span></a>
-      <a href="#resources"><span class="toc-number">08</span><span>Get started</span></a>
-      <a href="#citation"><span class="toc-number">09</span><span>Citation</span></a>
+      <a href="#conclusions"><span class="toc-number">08</span><span>Conclusions</span></a>
+      <a href="#resources"><span class="toc-number">09</span><span>Get started</span></a>
+      <a href="#citation"><span class="toc-number">10</span><span>Citation</span></a>
     </nav>
   </aside>
 
@@ -149,7 +150,35 @@
       <div class="utility" id="findings" data-toc-section><div><p class="eyebrow">From clarification to implementation</p><h3><span class="section-number">07</span><span class="heading-text">Resolving the gap<br>changes the outcome.</span></h3><p>With gold resolutions supplied, clarification-assisted generation improves both specification readiness and executable code.</p></div><div class="utility-results"><div><span>READY specifications</span><p>14% <span>to</span> <strong>98%</strong></p><small>50 real-world instances · blinded human evaluation</small></div><div><span>Target fidelity in code</span><p>30% <span>to</span> <strong>90%</strong></p><small>20 controlled instances · bounded components</small></div></div></div><p class="small-note utility-note">These studies measure the utility of successful clarification under oracle conditions: the annotated defect and gold resolution are provided. They are separate from end-to-end agent performance.</p>
     </div></section>
 
-    <section class="section container resources" id="resources" data-toc-section aria-labelledby="resources-title"><div class="section-heading"><p class="eyebrow">Open research</p><h2 id="resources-title"><span class="section-number">08</span><span class="heading-text">Start with the data.</span></h2><p>The benchmark and construction and evaluation code are available on GitHub.</p></div><div class="resource-links"><a href="https://github.com/Yiling-Ma/IdeaAMBIG/tree/main/Data"><span>Dataset</span><strong>660 released instances</strong><small>Paired specifications, defects, and clarification actions</small></a><a href="https://github.com/Yiling-Ma/IdeaAMBIG/tree/main/Evaluation"><span>Evaluation</span><strong>Run the three tasks</strong><small>Model runners, judging, scoring, and ablations</small></a><a href="https://arxiv.org/abs/2609.10539"><span>Paper</span><strong>Read the full study</strong><small>Methods, experimental results, and annotation protocols</small></a></div><div class="code-heading"><span>Load the released dataset</span><button class="copy-button" data-copy="quickstart">Copy code</button></div><pre><code id="quickstart">git clone https://github.com/Yiling-Ma/IdeaAMBIG.git
+    <section class="section conclusions-section" id="conclusions" data-toc-section aria-labelledby="conclusions-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">Takeaways</p><h2 id="conclusions-title"><span class="section-number">08</span><span class="heading-text">Conclusions</span></h2><p>A research idea needs its method-defining decisions resolved before it can be faithfully implemented.</p></div>
+        <div class="conclusion-grid">
+          <article class="conclusion-card">
+            <div class="conclusion-card-heading"><span class="conclusion-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 4H5v17h14V4h-3M8 3h8v4H8zM8 12h8M8 16h5"/></svg></span><h3>Evaluate implementation readiness</h3></div>
+            <p>Scientific plausibility alone does not establish readiness. IdeaAMBIG tests whether a specification resolves the decisions needed for faithful implementation.</p>
+            <a href="#benchmark">Three complementary tasks <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="conclusion-card">
+            <div class="conclusion-card-heading"><span class="conclusion-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M10 7v6M7 10h6"/></svg></span><h3>Finding the blocker is the bottleneck</h3></div>
+            <p>On real-world instances, supplying the annotated blocker raises GPT-5.6-Sol’s clarification success from <strong>13.6% to 80.6%</strong>. Acting on a known gap is far easier than discovering it.</p>
+            <a href="#results">Controlled comparison · Macro-CAS <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="conclusion-card">
+            <div class="conclusion-card-heading"><span class="conclusion-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4zM8 8h8M8 12h5"/></svg></span><h3>Clarification can change the outcome</h3></div>
+            <p>In the 50-instance oracle study, providing the defect, clarification action, and gold resolution raises specification readiness from <strong>14% to 98%</strong>.</p>
+            <a href="#findings">Utility under oracle conditions <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="conclusion-card">
+            <div class="conclusion-card-heading"><span class="conclusion-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 8h10a3 3 0 0 1 3 3v7H4v-7a3 3 0 0 1 3-3ZM12 3v5M2 12v3M22 12v3M8 21h8M9 14h.01M15 14h.01"/></svg></span><h3>Build agents that resolve gaps</h3></div>
+            <p>The results motivate research agents that identify unresolved decisions, seek supporting evidence, and ask targeted questions before committing to implementation choices.</p>
+            <a href="#examples">Explore evidence-grounded examples <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container resources" id="resources" data-toc-section aria-labelledby="resources-title"><div class="section-heading"><p class="eyebrow">Open research</p><h2 id="resources-title"><span class="section-number">09</span><span class="heading-text">Start with the data.</span></h2><p>The benchmark and construction and evaluation code are available on GitHub.</p></div><div class="resource-links"><a href="https://github.com/Yiling-Ma/IdeaAMBIG/tree/main/Data"><span>Dataset</span><strong>660 released instances</strong><small>Paired specifications, defects, and clarification actions</small></a><a href="https://github.com/Yiling-Ma/IdeaAMBIG/tree/main/Evaluation"><span>Evaluation</span><strong>Run the three tasks</strong><small>Model runners, judging, scoring, and ablations</small></a><a href="https://arxiv.org/abs/2609.10539"><span>Paper</span><strong>Read the full study</strong><small>Methods, experimental results, and annotation protocols</small></a></div><div class="code-heading"><span>Load the released dataset</span><button class="copy-button" data-copy="quickstart">Copy code</button></div><pre><code id="quickstart">git clone https://github.com/Yiling-Ma/IdeaAMBIG.git
 cd IdeaAMBIG
 python3 - &lt;&lt;'PY'
 import json
@@ -161,7 +190,7 @@ print(f"Loaded {len(instances)} real-world instances")
 print(instances[0]["input"]["underspecified_spec"])
 PY</code></pre></section>
 
-    <section class="section container citation" id="citation" data-toc-section aria-labelledby="citation-title"><div class="section-heading"><p class="eyebrow">Reference</p><h2 id="citation-title"><span class="section-number">09</span><span class="heading-text">Build on IdeaAMBIG.</span></h2></div><div class="code-heading"><span>BibTeX</span><button class="copy-button" data-copy="bibtex">Copy citation</button></div><pre><code id="bibtex">@article{ma2026ideaambig,
+    <section class="section container citation" id="citation" data-toc-section aria-labelledby="citation-title"><div class="section-heading"><p class="eyebrow">Reference</p><h2 id="citation-title"><span class="section-number">10</span><span class="heading-text">Build on IdeaAMBIG.</span></h2></div><div class="code-heading"><span>BibTeX</span><button class="copy-button" data-copy="bibtex">Copy citation</button></div><pre><code id="bibtex">@article{ma2026ideaambig,
   title   = {IdeaAMBIG: Benchmarking Implementation-Critical Gaps
              in Research-Idea Specifications},
   author  = {Ma, Yiling and Zhao, Yilun and Wu, Sihong
