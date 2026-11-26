@@ -64,12 +64,19 @@ controls, and stays inline on mobile. Video metadata is preloaded; the movie
 does not autoplay. The website uses a clean render without burned-in subtitles, so the CC menu
 can turn captions fully off. Desktop exports retain their on-screen subtitles.
 
-## Distribution figure
+## Interactive distributions
 
-Section 04 embeds the supplied four-panel distribution figure as a vector SVG
-converted from the original PDF. The unmodified original is available at
-`assets/dataset-distributions.pdf`. On small screens the chart scrolls horizontally
-to preserve readable labels; the original PDF is available for full-size viewing.
+Section 04 uses `distribution-explorer.js` and `data/distributions.json` for
+five views: research domains, Level-1 types, Level-2 categories, method
+components, and evidence sources. Subset comparison, counts/shares, sorting,
+hover/focus, and pinned category details are supported. All dimensions sum to
+163 real-world, 497 synthetic, and 660 combined records. The Combined share
+is computed from its counts, not averaged across subset percentages.
+
+`data/distribution-audit.csv` records the ID-level joins; see
+`data/distributions-provenance.md` for source definitions and the correction
+to the original component plotting input. The supplied source figure remains
+available unchanged at `assets/dataset-distributions.pdf`.
 
 ## Interactive subset comparison
 

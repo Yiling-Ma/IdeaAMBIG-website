@@ -13,9 +13,10 @@
   <meta property="og:image" content="https://yiling-ma.github.io/IdeaAMBIG-website/assets/social.png">
   <link rel="canonical" href="https://yiling-ma.github.io/IdeaAMBIG-website/">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-  <link rel="stylesheet" href="style.css?v=rank-compare-1">
+  <link rel="stylesheet" href="style.css?v=interactive-distributions-1">
   <script src="app.js?v=rank-compare-1" defer></script>
   <script src="results-explorer.js?v=rank-compare-1" defer></script>
+  <script src="distribution-explorer.js?v=interactive-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -93,12 +94,26 @@
       </div>
       </div>
       <div class="taxonomy" id="taxonomy" data-toc-section><div><p class="eyebrow">A shared vocabulary</p><h3><span class="section-number">04</span><span class="heading-text">3 types.<br>10 categories.</span></h3><p>Taxonomy labels describe the defect; the target description identifies the specific unresolved decision.</p></div><div class="taxonomy-list"><details open><summary>Ambiguity <span>2 categories</span></summary><p>Ambiguous Definition<br>Ambiguous Procedure</p></details><details><summary>Incompleteness <span>5 categories</span></summary><p>Missing Method Procedure<br>Missing Model Structure<br>Missing Data Specification<br>Missing Configuration Protocol<br>Missing Evaluation Specification</p></details><details><summary>Inconsistency <span>3 categories</span></summary><p>Conflicting Objective<br>Conflicting Model Design<br>Conflicting Formal Definition</p></details></div>
-      <figure class="taxonomy-distribution" aria-label="Dataset coverage and defect distributions">
-        <div class="taxonomy-distribution-heading"><h4>Dataset coverage and defect distributions</h4><a href="assets/dataset-distributions.pdf" target="_blank" rel="noopener">Open full-size PDF</a></div>
-        <div class="taxonomy-distribution-scroll" tabindex="0" role="region" aria-label="Distribution charts; scroll horizontally to see all four panels on smaller screens">
-          <a href="assets/dataset-distributions.pdf" target="_blank" rel="noopener" aria-label="Open the original distribution figure as a PDF"><img src="assets/dataset-distributions.svg" width="2021" height="501" loading="lazy" alt="Four grouped bar charts comparing real-world, controlled synthetic, and combined instances by research domain, Level-1 defect type, Level-2 defect category, and method component."></a>
+      <section class="taxonomy-distribution" id="distribution-explorer" aria-labelledby="distribution-heading" aria-busy="true">
+        <div class="taxonomy-distribution-heading"><h4 id="distribution-heading">Explore dataset coverage and defects</h4><div class="distribution-links"><a href="assets/dataset-distributions.pdf" target="_blank" rel="noopener">Original figure PDF</a><a href="data/distributions.json" download>Download counts</a></div></div>
+        <div class="distribution-explorer">
+          <div class="distribution-controls">
+            <div class="explorer-control-row"><span class="explorer-label" id="dist-view-label">Explore</span><div class="explorer-pills" role="group" aria-labelledby="dist-view-label"><button type="button" data-dist-dimension="domains" aria-pressed="false">Research domains</button><button type="button" data-dist-dimension="level1" aria-pressed="true">Defect types</button><button type="button" data-dist-dimension="level2" aria-pressed="false">Defect categories</button><button type="button" data-dist-dimension="components" aria-pressed="false">Method components</button><button type="button" data-dist-dimension="sources" aria-pressed="false">Evidence sources</button></div></div>
+            <div class="explorer-control-row"><span class="explorer-label" id="dist-set-label">Subset</span><div class="explorer-pills" role="group" aria-labelledby="dist-set-label"><button type="button" data-dist-subset="compare" aria-pressed="true">Compare sets</button><button type="button" data-dist-subset="real" aria-pressed="false">Real-world <small>163</small></button><button type="button" data-dist-subset="synthetic" aria-pressed="false">Synthetic <small>497</small></button><button type="button" data-dist-subset="combined" aria-pressed="false">Combined <small>660</small></button></div></div>
+            <div class="explorer-control-row"><span class="explorer-label" id="dist-unit-label">Measure</span><div class="explorer-pills" role="group" aria-labelledby="dist-unit-label"><button type="button" data-dist-unit="share" aria-pressed="true">Share (%)</button><button type="button" data-dist-unit="count" aria-pressed="false">Count</button><button type="button" id="distribution-sort" aria-pressed="false">Sort by size</button></div></div>
+          </div>
+          <p class="distribution-context" id="distribution-context">Loading distributions…</p>
+          <div class="distribution-layout">
+            <aside class="distribution-summary" aria-label="Selected category details"><p class="eyebrow" id="dist-focus-subset">Combined · 660 instances</p><h5 id="dist-focus-title">Incompleteness</h5>
+              <svg id="distribution-ring" class="distribution-ring" viewBox="0 0 220 220" role="img" aria-label="Selected category share"><circle cx="110" cy="110" r="84" fill="none" stroke="#edf0e4" stroke-width="15"/><circle id="dist-ring-value" cx="110" cy="110" r="84" fill="none" stroke="#788743" stroke-width="15" pathLength="100" stroke-dasharray="0 100" transform="rotate(-90 110 110)"/><text x="110" y="108" text-anchor="middle" id="dist-focus-percent">—</text><text x="110" y="137" text-anchor="middle" id="dist-focus-count">—</text></svg>
+              <p id="dist-focus-description"></p><div id="dist-focus-breakdown"></div><button type="button" id="distribution-clear" hidden>Clear selection</button>
+            </aside>
+            <div class="distribution-plot"><div class="distribution-plot-heading"><h5 id="dist-measure-title">Share of instances (%)</h5><div class="distribution-legend" id="distribution-legend"></div></div><div class="distribution-axis" id="distribution-axis" aria-hidden="true"></div><div id="distribution-chart" aria-label="Category distributions"></div><p class="distribution-hint">Hover or focus a bar to inspect it. Click to pin a category; Escape clears it.</p></div>
+          </div>
+          <p class="distribution-note" id="distribution-note"></p><p class="sr-only" role="status" id="distribution-live" aria-live="polite"></p>
         </div>
-      </figure>
+        <noscript><a href="assets/dataset-distributions.pdf">View the dataset distribution figure as a PDF.</a></noscript>
+      </section>
       </div>
     </div></section>
 

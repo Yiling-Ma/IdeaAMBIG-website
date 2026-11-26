@@ -1,0 +1,359 @@
+{
+  "totals": {
+    "real": 163,
+    "synthetic": 497,
+    "combined": 660
+  },
+  "dimensions": {
+    "domains": {
+      "title": "Research domains",
+      "note": "Domain labels are matched to the released instance IDs.",
+      "categories": [
+        {
+          "id": "computer-vision",
+          "label": "Computer vision",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 76,
+            "synthetic": 149,
+            "combined": 225
+          }
+        },
+        {
+          "id": "nlp",
+          "label": "Natural language processing",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 34,
+            "synthetic": 183,
+            "combined": 217
+          }
+        },
+        {
+          "id": "ir-recsys",
+          "label": "Information retrieval / recommendation",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 3,
+            "synthetic": 97,
+            "combined": 100
+          }
+        },
+        {
+          "id": "graph-ml",
+          "label": "Graph learning",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 15,
+            "synthetic": 14,
+            "combined": 29
+          }
+        },
+        {
+          "id": "general-ml",
+          "label": "General machine learning",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 11,
+            "synthetic": 11,
+            "combined": 22
+          }
+        },
+        {
+          "id": "time-series",
+          "label": "Time-series modeling",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 18,
+            "synthetic": 0,
+            "combined": 18
+          }
+        },
+        {
+          "id": "reinforcement-learning",
+          "label": "Reinforcement learning",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 2,
+            "synthetic": 13,
+            "combined": 15
+          }
+        },
+        {
+          "id": "multimodal",
+          "label": "Multimodal learning",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 2,
+            "synthetic": 12,
+            "combined": 14
+          }
+        },
+        {
+          "id": "speech",
+          "label": "Speech and audio",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 0,
+            "synthetic": 14,
+            "combined": 14
+          }
+        },
+        {
+          "id": "scientific-ml",
+          "label": "Scientific machine learning",
+          "description": "Research domain assigned in the original per-instance domain audit.",
+          "counts": {
+            "real": 2,
+            "synthetic": 4,
+            "combined": 6
+          }
+        }
+      ]
+    },
+    "level1": {
+      "title": "Defect types",
+      "note": "The three Level-1 defect types in the final taxonomy.",
+      "categories": [
+        {
+          "id": "ambiguity",
+          "label": "Ambiguity",
+          "description": "More than one implementation-relevant interpretation is possible.",
+          "counts": {
+            "real": 58,
+            "synthetic": 103,
+            "combined": 161
+          }
+        },
+        {
+          "id": "incompleteness",
+          "label": "Incompleteness",
+          "description": "A required methodological decision or component is missing.",
+          "counts": {
+            "real": 92,
+            "synthetic": 385,
+            "combined": 477
+          }
+        },
+        {
+          "id": "inconsistency",
+          "label": "Inconsistency",
+          "description": "The specification conflicts with the supported method or artifact evidence.",
+          "counts": {
+            "real": 13,
+            "synthetic": 9,
+            "combined": 22
+          }
+        }
+      ]
+    },
+    "level2": {
+      "title": "Defect categories",
+      "note": "The ten Level-2 categories in the final taxonomy.",
+      "categories": [
+        {
+          "id": "ambiguous-definition",
+          "label": "Ambiguous Definition",
+          "description": "A term or quantity has more than one implementation-relevant meaning.",
+          "counts": {
+            "real": 5,
+            "synthetic": 22,
+            "combined": 27
+          }
+        },
+        {
+          "id": "ambiguous-procedure",
+          "label": "Ambiguous Procedure",
+          "description": "The described procedure permits different methodological choices.",
+          "counts": {
+            "real": 53,
+            "synthetic": 81,
+            "combined": 134
+          }
+        },
+        {
+          "id": "missing-method-procedure",
+          "label": "Missing Method Procedure",
+          "description": "A required algorithmic operation or step is not specified.",
+          "counts": {
+            "real": 26,
+            "synthetic": 240,
+            "combined": 266
+          }
+        },
+        {
+          "id": "missing-model-structure",
+          "label": "Missing Model Structure",
+          "description": "A required part of the model architecture is not specified.",
+          "counts": {
+            "real": 12,
+            "synthetic": 37,
+            "combined": 49
+          }
+        },
+        {
+          "id": "missing-data-specification",
+          "label": "Missing Data Specification",
+          "description": "Required data construction or preprocessing details are missing.",
+          "counts": {
+            "real": 31,
+            "synthetic": 42,
+            "combined": 73
+          }
+        },
+        {
+          "id": "missing-configuration-protocol",
+          "label": "Missing Configuration Protocol",
+          "description": "A required configuration or hyperparameter-selection protocol is missing.",
+          "counts": {
+            "real": 4,
+            "synthetic": 8,
+            "combined": 12
+          }
+        },
+        {
+          "id": "missing-evaluation-specification",
+          "label": "Missing Evaluation Specification",
+          "description": "A required evaluation choice or protocol is missing.",
+          "counts": {
+            "real": 19,
+            "synthetic": 58,
+            "combined": 77
+          }
+        },
+        {
+          "id": "conflicting-objective",
+          "label": "Conflicting Objective",
+          "description": "The stated objective or loss conflicts with the supported method.",
+          "counts": {
+            "real": 1,
+            "synthetic": 2,
+            "combined": 3
+          }
+        },
+        {
+          "id": "conflicting-model-design",
+          "label": "Conflicting Model Design",
+          "description": "The architecture or pipeline conflicts with the supported implementation.",
+          "counts": {
+            "real": 10,
+            "synthetic": 6,
+            "combined": 16
+          }
+        },
+        {
+          "id": "conflicting-formal-definition",
+          "label": "Conflicting Formal Definition",
+          "description": "A formal definition conflicts with the supported method.",
+          "counts": {
+            "real": 2,
+            "synthetic": 1,
+            "combined": 3
+          }
+        }
+      ]
+    },
+    "components": {
+      "title": "Method components",
+      "note": "Original slot groupings, recomputed using the released real-world and synthetic split.",
+      "categories": [
+        {
+          "id": "algorithm",
+          "label": "Algorithm",
+          "description": "Method flow, inference behavior, and algorithmic decisions.",
+          "counts": {
+            "real": 104,
+            "synthetic": 273,
+            "combined": 377
+          }
+        },
+        {
+          "id": "model",
+          "label": "Model",
+          "description": "Architecture, implementation structure, and model behavior.",
+          "counts": {
+            "real": 1,
+            "synthetic": 53,
+            "combined": 54
+          }
+        },
+        {
+          "id": "loss",
+          "label": "Loss",
+          "description": "Training objectives and supervision.",
+          "counts": {
+            "real": 0,
+            "synthetic": 24,
+            "combined": 24
+          }
+        },
+        {
+          "id": "evaluation",
+          "label": "Evaluation",
+          "description": "Evaluation metrics, baselines, and protocols.",
+          "counts": {
+            "real": 19,
+            "synthetic": 68,
+            "combined": 87
+          }
+        },
+        {
+          "id": "data",
+          "label": "Data",
+          "description": "Data, inputs, outputs, and preprocessing.",
+          "counts": {
+            "real": 32,
+            "synthetic": 57,
+            "combined": 89
+          }
+        },
+        {
+          "id": "training",
+          "label": "Training",
+          "description": "Optimization schedules and training procedures.",
+          "counts": {
+            "real": 7,
+            "synthetic": 22,
+            "combined": 29
+          }
+        }
+      ]
+    },
+    "sources": {
+      "title": "Evidence sources",
+      "note": "Source artifacts behind the 660 released instances.",
+      "categories": [
+        {
+          "id": "github-issues",
+          "label": "GitHub issues",
+          "description": "Real-world gaps reconstructed from resolved issue discussions.",
+          "counts": {
+            "real": 121,
+            "synthetic": 0,
+            "combined": 121
+          }
+        },
+        {
+          "id": "reproducibility-reports",
+          "label": "Reproducibility reports",
+          "description": "Real-world reported gaps and controlled defects based on reproducible references.",
+          "counts": {
+            "real": 42,
+            "synthetic": 358,
+            "combined": 400
+          }
+        },
+        {
+          "id": "executed-research",
+          "label": "Executed research",
+          "description": "Controlled defects constructed from executed research trajectories.",
+          "counts": {
+            "real": 0,
+            "synthetic": 139,
+            "combined": 139
+          }
+        }
+      ]
+    }
+  }
+}
