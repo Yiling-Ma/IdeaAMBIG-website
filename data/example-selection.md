@@ -18,8 +18,8 @@ Level-1 types without duplicating one paper unnecessarily.
 Five cases replaced; the DN-CBM ambiguity retained after review. No random sampling.
 
 The underspecified text, full READY reference, taxonomy, and clarification actions
-come from the released record. Three display inputs omit unrelated context;
-they are explicitly labeled excerpts and link to the complete original JSONL line.
+come from the released record. All six underspecified specifications are displayed
+in full and link to the original JSONL line. No content is omitted.
 Blocker descriptions and readiness rationales are concise editorial summaries of
 the corresponding gold annotation; they are not additional model outputs.
 The PGExplainer context is separated from its input and attributed to the source.
@@ -43,42 +43,42 @@ URLs, raw JSON, and executable code are preserved. Dataset entries are read-only
 - Record: `github_Time-MoE_Time-MoE_issue_35_dense_baseline_activated_param_definition_resolved_gap_001`
 - Selection: Matches the paper teaser and video; concrete eight-expert/top-two setup; one clearly stated definition changes an actual model size.
 - Provenance: https://github.com/Time-MoE/Time-MoE/issues/35
-- Display: verbatim source excerpt; omissions explicitly marked where non-contiguous. Full READY reference and gold clarification action retained.
+- Display: complete original underspecified specification, without omissions. Full READY reference and gold clarification action retained.
 
 ## Real / Incompleteness: XFeat: the missing keypoint classifier
 
 - Record: `tmlr_2026_c683882bbd_resolved_gap_003`
 - Selection: Appears in the paper’s representative cases; a missing output layer is more clearly method-defining than an unspecified evaluation setting.
 - Provenance: https://openreview.net/forum?id=2WI889Ulin
-- Display: verbatim source excerpt; omissions explicitly marked where non-contiguous. Full READY reference and gold clarification action retained.
+- Display: complete original underspecified specification, without omissions. Full READY reference and gold clarification action retained.
 
 ## Real / Inconsistency: PGExplainer: paper and code disagree
 
 - Record: `openreview_mlrc_2020_8JHrucviUf_resolved_gap_001`
 - Selection: Short specification; a directly evidenced paper/code connectivity conflict; clearer than an unmentioned feature-normalization step.
 - Provenance: https://openreview.net/forum?id=8JHrucviUf
-- Display: complete original underspecified specification. Full READY reference and gold clarification action retained.
+- Display: complete original underspecified specification, without omissions. Full READY reference and gold clarification action retained.
 
 ## Synthetic / Ambiguity: Discover-then-Name: which similarity metric?
 
 - Record: `tmlr_2025_8223796ba7_direct_synthetic_defect_004`
 - Selection: Retained after review: one local ambiguity with an exact cosine-similarity resolution, in a relatively short specification.
 - Provenance: https://openreview.net/forum?id=946cT3Jsq5
-- Display: complete original underspecified specification. Full READY reference and gold clarification action retained.
+- Display: complete original underspecified specification, without omissions. Full READY reference and gold clarification action retained.
 
 ## Synthetic / Incompleteness: MatchDG: defining the training pairs
 
 - Record: `openreview_mlrc_2021_r43elaGmhCY_direct_synthetic_defect_005`
 - Selection: A central contrastive-learning operation is absent; a single concrete question recovers the same-class/cross-domain pairing rule.
 - Provenance: https://openreview.net/forum?id=r43elaGmhCY
-- Display: complete original underspecified specification. Full READY reference and gold clarification action retained.
+- Display: complete original underspecified specification, without omissions. Full READY reference and gold clarification action retained.
 
 ## Synthetic / Inconsistency: AMuLaP: minimum or maximum probability?
 
 - Record: `openreview_mlrc_2022_t8ZZ2Y356Ix_direct_synthetic_defect_005`
 - Selection: A visible minimum/maximum decision with an exact single-word correction; easier to follow than GANSpace’s regression-norm mismatch.
 - Provenance: https://openreview.net/forum?id=t8ZZ2Y356Ix
-- Display: verbatim source excerpt; omissions explicitly marked where non-contiguous. Full READY reference and gold clarification action retained.
+- Display: complete original underspecified specification, without omissions. Full READY reference and gold clarification action retained.
 
 ## Review of the previous six selections
 

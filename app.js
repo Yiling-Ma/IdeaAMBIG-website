@@ -21,7 +21,7 @@ function renderExample() {
   $("#example-source").href = example.source;
   $("#example-source").textContent = example.subset === "synthetic" ? "Reference report" : "Source evidence";
   $("#example-record").href = example.record_url;
-  $("#example-spec-label").textContent = example.is_excerpt ? "Underspecified specification · excerpt" : "Underspecified specification";
+  $("#example-spec-label").textContent = "Underspecified specification";
   $("#example-origin").textContent = example.subset === "synthetic" ? "Controlled synthetic · single injected defect" : "Real-world · reconstructed gap";
   $("#example-spec").textContent = readable(example.specification);
   const panel = $("#task-panel");
@@ -167,7 +167,7 @@ async function loadData(path) {
   if (!response.ok) throw new Error(`Unable to load ${path}`);
   return response.json();
 }
-loadData("data/examples.json?v=curated-examples-1").then(data => {examples = data;renderExample();}).catch(() => {
+loadData("data/examples.json?v=full-examples-1").then(data => {examples = data;renderExample();}).catch(() => {
   $("#example-title").textContent = "Examples could not be loaded.";
   $("#example-spec").textContent = "Please reload this page or browse the released dataset on GitHub using the link above.";
 });

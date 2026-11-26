@@ -20,7 +20,7 @@ files load correctly. No installation or build step is required.
 - `index.html`: paper information, tasks, construction, taxonomy, results, resources, and citation.
 - `style.css`: responsive layout using the project's brick-red, orange, olive, and powder-blue palette.
 - `app.js`: example explorer, sortable results, scroll-aware contents navigation, mobile drawer, and copy controls.
-- `data/examples.json`: six curated released records, one per subset and Level-1 type, with source excerpts, full READY references, and gold clarification actions. Every record retains its original ID and a direct link to its JSONL line.
+- `data/examples.json`: six curated released records, one per subset and Level-1 type, with complete source specifications, full READY references, and gold clarification actions. Every record retains its original ID and a direct link to its JSONL line.
 - `data/results.json`: all 78 main-result values for the 13 models, transcribed from the latest paper.
 - `assets/`: original IdeaAMBIG logo, paper construction figure, and locally hosted font.
 
@@ -50,8 +50,8 @@ Benchmark release: `Yiling-Ma/IdeaAMBIG`, commit
 
 Example panels display gold annotations; they do not call an LLM.
 Selection criteria, rejected alternatives, and per-case rationales are documented
-in `data/example-selection.md`. Excerpts omit only unrelated context and are labeled
-explicitly. User-facing labels use spaces; raw IDs and executable code are preserved.
+in `data/example-selection.md`. All six underspecified specifications are displayed in full, without excerpt
+markers or omitted context. User-facing labels use spaces; raw IDs and executable code are preserved.
 Reported Task 3 results receive the annotated defect. Oracle-utility studies
 supply the gold resolution and are labeled separately.
 
