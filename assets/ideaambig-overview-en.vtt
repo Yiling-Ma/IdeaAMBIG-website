@@ -1,0 +1,220 @@
+WEBVTT
+
+00:00:00.418 --> 00:00:05.776
+Introducing IdeaAMBIG: a benchmark for finding implementation-critical gaps in research-idea specifications.
+
+00:00:05.926 --> 00:00:07.719
+Before an AI system writes the code,
+
+00:00:07.869 --> 00:00:09.324
+can it tell what still needs clarification?
+
+00:00:10.309 --> 00:00:12.516
+A research idea can have a novel objective,
+
+00:00:12.547 --> 00:00:13.483
+convincing motivation,
+
+00:00:13.708 --> 00:00:14.930
+and a promising mechanism.
+
+00:00:15.080 --> 00:00:17.345
+But a method-defining decision may remain unresolved.
+
+00:00:17.503 --> 00:00:19.861
+Different unsupported assumptions lead to different methods.
+
+00:00:20.018 --> 00:00:21.678
+That is why codification readiness matters.
+
+00:00:22.676 --> 00:00:24.088
+Consider a mixture-of-experts model.
+
+00:00:24.238 --> 00:00:27.525
+A specification says to match a dense baseline to its activated
+
+00:00:27.525 --> 00:00:30.135
+parameter count. Does that count include only the experts used for
+
+00:00:30.135 --> 00:00:31.706
+each token, or every expert?
+
+00:00:31.856 --> 00:00:32.998
+The answer changes the baseline,
+
+00:00:33.148 --> 00:00:34.459
+not just an engineering detail.
+
+00:00:35.451 --> 00:00:37.823
+IdeaAMBIG contains 660 instances:
+
+00:00:38.007 --> 00:00:42.227
+163 real-world gaps and 497 controlled synthetic gaps.
+
+00:00:42.385 --> 00:00:45.736
+Real gaps come from resolved GitHub issues and reproducibility reports.
+
+00:00:45.886 --> 00:00:48.512
+Synthetic gaps alter one detail in a ready reference.
+
+00:00:48.645 --> 00:00:51.911
+Every retained instance undergoes two-stage human verification.
+
+00:00:52.909 --> 00:00:55.677
+Each main-benchmark instance isolates one target defect.
+
+00:00:55.835 --> 00:00:57.709
+The taxonomy distinguishes ambiguity,
+
+00:00:57.885 --> 00:01:01.243
+incompleteness, and inconsistency, with ten categories in total.
+
+00:01:01.401 --> 00:01:04.819
+Each underspecified input has a counterpart that resolves only its target
+
+00:01:04.819 --> 00:01:05.223
+defect.
+
+00:01:06.268 --> 00:01:08.694
+First, readiness assessment. Given one specification,
+
+00:01:08.853 --> 00:01:11.322
+the model predicts READY or NOT READY and explains why.
+
+00:01:11.472 --> 00:01:13.467
+Each specification is presented independently,
+
+00:01:13.643 --> 00:01:15.089
+without showing its paired counterpart.
+
+00:01:16.084 --> 00:01:19.397
+Second, defect localization. Given an underspecified specification,
+
+00:01:19.538 --> 00:01:22.724
+the model must recover the unresolved decision and both taxonomy labels.
+
+00:01:22.866 --> 00:01:24.759
+Naming a plausible category is not enough:
+
+00:01:24.926 --> 00:01:27.259
+the diagnosis must identify the actual blocker.
+
+00:01:28.285 --> 00:01:30.127
+Third, clarification action generation.
+
+00:01:30.294 --> 00:01:31.933
+Here the annotated defect is supplied.
+
+00:01:32.092 --> 00:01:34.652
+The model proposes a targeted question or an evidence-seeking action,
+
+00:01:34.810 --> 00:01:37.733
+specifying the information needed to resolve the gap without inventing an
+
+00:01:37.733 --> 00:01:38.088
+answer.
+
+00:01:39.067 --> 00:01:44.457
+Readiness Macro-F1 reaches 67.5 on real-world gaps versus 86.4 on synthetic
+
+00:01:44.457 --> 00:01:47.568
+gaps. Yet 31 percent of underspecified inputs are accepted;
+
+00:01:47.726 --> 00:01:49.794
+34 percent of ready inputs are rejected.
+
+00:01:49.952 --> 00:01:52.441
+Reason grounding reaches only 0.36.
+
+00:01:53.418 --> 00:01:55.639
+Level-1 accuracy reaches 60.1;
+
+00:01:55.856 --> 00:02:00.542
+Level-2 accuracy, 25.2. But localization accuracy is 16.0,
+
+00:02:00.717 --> 00:02:03.023
+and Macro defect recovery just 9.6.
+
+00:02:03.181 --> 00:02:06.778
+Without category prediction, localization improves to 40.5 percent.
+
+00:02:06.937 --> 00:02:08.365
+Discovering the blocker remains hard.
+
+00:02:09.351 --> 00:02:13.677
+Given the blocker, clarification success reaches 80.6 on real-world instances versus
+
+00:02:13.677 --> 00:02:15.653
+96.2 on synthetic instances.
+
+00:02:15.812 --> 00:02:18.203
+Sufficiency is 80.4; No-Assumption,
+
+00:02:18.252 --> 00:02:22.316
+95.7. Remaining failures mainly reflect incomplete clarification.
+
+00:02:23.301 --> 00:02:24.887
+On the same 163 instances,
+
+00:02:25.012 --> 00:02:29.094
+supplying the blocker raises clarification success from 13.6 to 80.6.
+
+00:02:29.244 --> 00:02:31.876
+Sufficiency rises from 8.6 to 80.4.
+
+00:02:32.009 --> 00:02:35.906
+No-Assumption barely changes: 96.3 versus 95.7.
+
+00:02:36.056 --> 00:02:37.718
+The model is better at acting on a known blocker.
+
+00:02:38.718 --> 00:02:42.191
+With oracle resolutions, the ready rate rises from fourteen to ninety-eight
+
+00:02:42.191 --> 00:02:44.683
+percent. Completeness rises from thirty to ninety-eight;
+
+00:02:44.765 --> 00:02:47.233
+missing-detail recovery, from fourteen to ninety-eight.
+
+00:02:47.384 --> 00:02:48.678
+All three gains are significant,
+
+00:02:48.837 --> 00:02:50.561
+but not end-to-end agent performance.
+
+00:02:51.549 --> 00:02:54.037
+The key finding: discovering the blocker is the bottleneck.
+
+00:02:54.170 --> 00:02:55.654
+On the same 163 instances,
+
+00:02:55.713 --> 00:02:59.573
+supplying it raises clarification success from 13.6 to 80.6 percent.
+
+00:03:00.553 --> 00:03:02.492
+With 660 evidence-grounded instances,
+
+00:03:02.633 --> 00:03:04.416
+IdeaAMBIG measures three steps:
+
+00:03:04.609 --> 00:03:06.270
+assess readiness, discover the blocker,
+
+00:03:06.420 --> 00:03:07.619
+and obtain the missing information.
+
+00:03:07.786 --> 00:03:12.258
+The next priority is reliable gap diagnosis and evidence-grounded clarification before
+
+00:03:12.258 --> 00:03:12.563
+coding.
+
+00:03:13.590 --> 00:03:14.838
+Find the gap before coding.
+
+00:03:15.020 --> 00:03:17.333
+The paper, code, and benchmark are available.
+
+00:03:17.497 --> 00:03:18.549
+Explore IdeaAMBIG.

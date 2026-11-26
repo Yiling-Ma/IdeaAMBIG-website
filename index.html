@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://yiling-ma.github.io/IdeaAMBIG-website/assets/social.png">
   <link rel="canonical" href="https://yiling-ma.github.io/IdeaAMBIG-website/">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
-  <link rel="stylesheet" href="style.css?v=contents-2">
+  <link rel="stylesheet" href="style.css?v=overview-video-1">
   <script src="app.js?v=contents-2" defer></script>
 </head>
 <body>
@@ -66,6 +66,17 @@
     <section class="section overview container" id="overview" data-toc-section aria-labelledby="overview-title">
       <div class="section-heading"><p class="eyebrow">The question before the code</p><h2 id="overview-title"><span class="section-number">01</span><span class="heading-text">Is the idea ready<br>to implement?</span></h2></div>
       <div class="overview-copy"><p class="lead">A research idea can be novel and scientifically plausible while still leaving the core method underdetermined.</p><p><strong>Codification readiness</strong> asks whether a competent implementer or coding agent can build a faithful initial implementation without inventing unsupported assumptions about the core method.</p><p>IdeaAMBIG separates three capabilities: assessing readiness, discovering the unresolved implementation decision, and formulating a clarification action once that decision is known.</p><details class="abstract"><summary>Read the abstract</summary><p>A research idea may be novel and scientifically plausible, yet its proposed method may remain insufficiently specified for faithful implementation. We study codification readiness: whether a research-method specification provides sufficient information for faithful implementation without unsupported assumptions. We introduce IdeaAMBIG, a benchmark of 660 evidence-grounded instances comprising 163 real-world gaps from reproducibility reports and GitHub issues and 497 controlled synthetic gaps injected into codification-ready references. IdeaAMBIG evaluates three capabilities: codification-readiness assessment, defect localization, and clarification action generation, separating defect discovery from clarification given the defect. Across 13 LLMs, the best model achieves 9.6% Macro Defect Recovery Rate on real-world instances. When given the annotated defect, it achieves 80.6% Macro Clarification Action Success Rate. These results identify defect discovery as a key bottleneck for research automation, with models better able to formulate clarification actions once the defect is known.</p></details></div>
+      <figure class="overview-video" aria-labelledby="overview-video-title">
+        <div class="overview-video-heading"><h3 id="overview-video-title">Watch the overview</h3><span>3 min 19 sec</span></div>
+        <div class="overview-video-frame">
+          <video controls playsinline preload="metadata" width="1920" height="1080" poster="assets/ideaambig-overview-poster.webp" aria-label="IdeaAMBIG project overview" aria-describedby="overview-video-caption">
+            <source src="assets/ideaambig-overview-v11.mp4" type="video/mp4">
+            <track kind="captions" src="assets/ideaambig-overview-en.vtt" srclang="en" label="English">
+            Your browser does not support embedded video. <a href="assets/ideaambig-overview-v11.mp4">Watch the IdeaAMBIG overview.</a>
+          </video>
+        </div>
+        <figcaption id="overview-video-caption"><span>The benchmark, key findings, and what they mean for research agents. English narration and on-screen captions.</span><a href="assets/ideaambig-overview-v11.mp4">Open video</a></figcaption>
+      </figure>
     </section>
 
     <section class="benchmark-section section" id="benchmark" data-toc-section aria-labelledby="benchmark-title"><div class="container">

@@ -51,3 +51,15 @@ body{padding-left:240px}
   .nav{gap:18px}
   .nav-links .nav-code{font-size:13px}
 }
+
+/* Overview film */
+.overview-video{grid-column:1/-1;min-width:0;margin:0}
+.overview-video-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.overview-video-heading h3{font-size:clamp(1.4rem,2.2vw,1.8rem);margin:0;letter-spacing:-.025em}
+.overview-video-heading>span{font-size:.875rem;color:var(--olive);white-space:nowrap}
+.overview-video-frame{overflow:hidden;border:1px solid var(--line);border-radius:14px;background:#fcfcf9;box-shadow:0 14px 42px #282b260a}
+.overview-video video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#fcfcf9}
+.overview-video video:focus-visible{outline:3px solid var(--orange);outline-offset:-4px}
+.overview-video figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;margin-top:14px}
+.overview-video figcaption a{color:var(--brick);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+@media(max-width:760px){.overview-video{margin-top:26px}.overview-video-heading{margin-bottom:12px}.overview-video-frame{border-radius:9px}.overview-video figcaption{flex-wrap:wrap;font-size:.875rem}}
