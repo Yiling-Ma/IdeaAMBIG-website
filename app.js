@@ -24,8 +24,6 @@ function renderExample() {
   $("#example-spec-label").textContent = example.is_excerpt ? "Underspecified specification · excerpt" : "Underspecified specification";
   $("#example-origin").textContent = example.subset === "synthetic" ? "Controlled synthetic · single injected defect" : "Real-world · reconstructed gap";
   $("#example-spec").textContent = readable(example.specification);
-  $("#example-reference").textContent = readable(example.reference);
-  $(".reference").open = false;
   const panel = $("#task-panel");
   panel.replaceChildren();
   panel.setAttribute("aria-labelledby", `task-tab-${activeTask}`);
