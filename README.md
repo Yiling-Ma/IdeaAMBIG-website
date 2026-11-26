@@ -55,7 +55,8 @@ supply the gold resolution and are labeled separately.
 ## Overview video
 
 The Overview section embeds the approved v11 film (3:19), served directly
-from `assets/ideaambig-overview-v11.mp4`, with a local WebP poster and
+from `assets/ideaambig-overview-v11-clean.mp4`, with a local WebP poster and
 optional English WebVTT captions. Playback is user-initiated, uses native accessible
 controls, and stays inline on mobile. Video metadata is preloaded; the movie
-does not autoplay. Its source is the finalized desktop video export.
+does not autoplay. The website uses a clean render without burned-in subtitles, so the CC menu
+can turn captions fully off. Desktop exports retain their on-screen subtitles.
