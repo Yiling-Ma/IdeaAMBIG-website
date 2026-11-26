@@ -24,8 +24,6 @@ body{padding-left:240px}
 .toc-number{color:#99a382;font:400 12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;font-variant-numeric:tabular-nums}
 .contents-links a[aria-current=location]{background:#e8edda;border-left-color:var(--brick);color:var(--brick);font-weight:600}
 .contents-links a[aria-current=location] .toc-number{color:var(--brick)}
-.contents-paper{border-top:1px solid #dde2d2;margin:24px 10px 0;padding-top:20px;font-size:13px;color:var(--olive)}
-.contents-paper span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
 .section-heading h2,.pipeline-header h3,.taxonomy h3,.utility h3{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;column-gap:16px}
 .section-number{font:400 .47em/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:-.025em;color:var(--olive);padding-top:.1em;font-variant-numeric:tabular-nums}
 .heading-text{min-width:0}

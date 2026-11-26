@@ -82,7 +82,7 @@ contentsLinks.forEach(link => link.addEventListener("click", () => {
 document.addEventListener("keydown", event => {
   if (event.key === "Escape" && contentsToggle.getAttribute("aria-expanded") === "true") setContentsOpen(false, true);
   if (event.key === "Tab" && drawerViewport.matches && contentsToggle.getAttribute("aria-expanded") === "true") {
-    const focusable = [contentsToggle, ...contentsLinks, $(".contents-paper")];
+    const focusable = [contentsToggle, ...contentsLinks];
     const index = focusable.indexOf(document.activeElement);
     const next = (index + (event.shiftKey ? -1 : 1) + focusable.length) % focusable.length;
     event.preventDefault();focusable[next].focus();
