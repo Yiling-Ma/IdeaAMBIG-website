@@ -110,3 +110,9 @@ GPT-5.6-Sol (paper Tables 15–16). Oracle utility remains explicitly identified
 Unused static distribution SVG and uncropped pipeline PNG have been removed.
 The pipeline SVG embeds its own image and requires no external PNG. The corrected
 distribution PDF remains linked alongside the interactive explorer.
+
+## IdeaAMBIG taxonomy consistency
+
+See [TAXONOMY.md](TAXONOMY.md) and the shared [taxonomy.json](taxonomy.json)
+for the final three Level-1 types and ten Level-2 categories. Run
+`python3 scripts/check_taxonomy.py --pdf` before publishing label changes.
